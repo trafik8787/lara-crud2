@@ -5,10 +5,6 @@ namespace Trafik8787\laraCrud2\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Route;
 use Trafik8787\LaraCrud2\Admin;
-use Trafik8787\LaraCrud2\Console\Commands\InstallCommand;
-use Trafik8787\LaraCrud2\Console\Commands\InstallExample;
-use Trafik8787\LaraCrud2\Console\Commands\ModelGenerate;
-use Trafik8787\LaraCrud2\Console\Commands\NodeGenerate;
 use Trafik8787\LaraCrud2\Contracts\ActionTableInterface;
 use Trafik8787\LaraCrud2\Contracts\AdminInterface;
 use Trafik8787\LaraCrud2\Contracts\ChildRowsInterface;
@@ -101,10 +97,10 @@ class LaraCrudProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                NodeGenerate::class,
-                ModelGenerate::class,
-                InstallCommand::class,
-                InstallExample::class
+                \Trafik8787\LaraCrud2\Console\Commands\NodeGenerate::class,
+                \Trafik8787\LaraCrud2\Console\Commands\ModelGenerate::class,
+                \Trafik8787\LaraCrud2\Console\Commands\InstallCommand::class,
+                \Trafik8787\LaraCrud2\Console\Commands\InstallExample::class
             ]);
         }
     }

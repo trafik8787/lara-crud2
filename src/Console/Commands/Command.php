@@ -24,7 +24,7 @@ abstract class Command extends ConsoleCommand
     {
 
         if (!defined('SLEEPINGOWL_STUB_PATH')) {
-            define('SLEEPINGOWL_STUB_PATH', __DIR__ . '/stubs');
+            define('SLEEPINGOWL_artisan_PATH', __DIR__ . '/stubs');
         }
 
         if (!$this->confirmToProceed('Lara-Crud Admin')) {
