@@ -1,0 +1,481 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Vitalik
+ * Date: 18.09.2017
+ * Time: 13:25
+ */
+
+namespace Trafik8787\LaraCrud2\Form;
+
+use App;
+
+use Illuminate\Http\Request;
+use Validator;
+use Trafik8787\LaraCrud2\Contracts\Component\TabsInterface;
+use Trafik8787\LaraCrud2\Contracts\Component\UploadFileInterface;
+use Trafik8787\LaraCrud2\Form\Component\ComponentManagerBuilder;
+use Trafik8787\LaraCrud2\Form\Component\File;
+
+
+/**
+ * Class FormTable
+ * @package Trafik8787\LaraCrud2\Form
+ */
+class FormTable extends FormManagerTable
+{
+
+    private $tabs;
+    private $file;
+    private $request;
+    protected $validator;
+    protected $relation_to_many;
+    protected $getModelData;
+
+    /**
+     * FormTable constructor.
+     * @param TabsInterface $tabs
+     * @param UploadFileInterface $file
+     * @param Request $request
+     */
+    public function __construct(TabsInterface $tabs, UploadFileInterface $file, Request $request)
+    {
+        $this->tabs = $tabs;
+        $this->file = $file;
+        $this->request = $request;
+    }
+
+    /**
+     * @param null $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     */
+    public function renderFormEdit($id = null)
+    {
+
+        /**
+         * если запрос пришел от поля SELECT2
+         */
+        if ($this->request->ajax() and csrf_token() == $this->request->get('_token')) {
+            return $this->returnDataAjaxForSelect();
+        }
+
+
+        // todo два возможных источника ключа либо с роутера либо с метода getFormShow() если нужно вывести форму сразу
+        if ($id !== null) {
+            $this->id = $id;
+            $formActionUrl = url()->current() . '/' . $id . '/edit';
+        } else {
+            $this->id = $this->admin->route->parameters['adminModelId'];
+            $formActionUrl = url()->current();
+        }
+
+        $this->getModelData = $this->getModelData();
+
+
+        if ($this->objConfig->getButtonEdit($this->getModelData) === false) {
+            return redirect()->back();
+        }
+
+        if (empty($this->getModelData)) {
+            return redirect($this->getUrlRedirect());
+        }
+
+        $data = [
+            'keyName' => $this->admin->KeyName, //name primary Key
+            'id' => $this->id,
+            'formActionUrl' => $formActionUrl,
+            'urlAction' => $this->admin->route->parameters['adminModel'],
+            'titlePage' => $this->objConfig->getTitle(),
+            'buttonApply' => $this->objConfig->getButtonApply(),
+            'buttonSave' => $this->objConfig->getButtonSave(),
+            'formMetod' => 'PATCH',
+            'objField' => $this->getFieldRender(),
+            'urlRedirect' => $this->getUrlRedirect(),
+            'classForm' => $this->objConfig->getClassForm(),
+            'addViewCustom' => $this->objConfig->setViewsCustomTop($this->getModelData)
+        ];
+
+        return view('lara::Form.form', $data);
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     */
+    public function renderFormInsert()
+    {
+
+        if ($this->objConfig->getButtonAdd() === false) {
+            return redirect()->back();
+        }
+        /**
+         * если запрос пришел от поля SELECT2
+         */
+        if ($this->request->ajax() and csrf_token() == $this->request->get('_token')) {
+            return $this->returnDataAjaxForSelect();
+        }
+
+        $data = [
+            'urlAction' => $this->admin->route->parameters['adminModel'],
+            'formActionUrl' => url()->current(),
+            'titlePage' => $this->objConfig->getTitle(),
+            'buttonApply' => $this->objConfig->getButtonApply(),
+            'buttonSave' => $this->objConfig->getButtonSave(),
+            'formMetod' => 'POST',
+            'objField' => $this->getFieldRender(),
+            'classForm' => $this->objConfig->getClassForm(),
+            'urlRedirect' => $this->getUrlRedirect(),
+            'addViewCustom' => $this->objConfig->setViewsCustomTop($this->objConfig->getModelObj())
+        ];
+
+        return view('lara::Form.form', $data);
+    }
+
+    /**
+     * @return mixed
+     * получаем запись для редактирования
+     */
+    public function getModelData()
+    {
+        if (!empty($this->id)) {
+            $result = $this->objConfig->getWhere($this->objConfig->getModelObj());
+
+            $obj = $result->find($this->id);
+
+            if (!empty($obj)) {
+                return $obj;
+            }
+
+        }
+        return null;
+    }
+
+
+    /**
+     * @return array
+     * todo должен возвращать масив с отрендеренными tamplate component
+     */
+    public function getFieldRender()
+    {
+
+        /**
+         * добавляем в класс Tabs обьект конфигурации
+         */
+        $this->tabs->objConfig($this->objConfig);
+
+
+        $result = [];
+
+        $this->getModelData = $this->objConfig->getBeforeModelFormCollback($this->getModelData);
+
+        foreach ($this->getArrayField() as $item) {
+
+            //todo получаем данные из таблицы многие ко многим для вывода в поле
+            $this->objConfig->getCurentValueMultiple($item['field'], $this->getModelData);
+            $this->objConfig->getCurentValueOneToMany($item['field'], $this->getModelData);
+
+            //конструктор форм
+            $objBilder = (new ComponentManagerBuilder($item));
+            $objBilder->classStyle();
+            $objBilder->type();
+            $objBilder->label();
+            $objBilder->placeholder();
+            $objBilder->title();
+            $objBilder->name();
+            $objBilder->enableEditor();
+            $objBilder->multiple();
+            $objBilder->options();
+            $objBilder->tooltip();
+            $objBilder->OneToMany();
+            $objBilder->required();
+            $objBilder->attribute();
+
+            $model_field_value = !empty($this->getModelData->{$item['field']}) ? $this->getModelData->{$item['field']} : null;
+
+            $objBilder->value($this->objConfig->getValue($item['field'], $model_field_value));
+
+
+            $result[$objBilder->name] = $objBilder->build();
+            // die(2);
+        }
+
+
+        /**
+         * hooks before render edit
+         */
+        if (empty($model)) {
+            $model = $this->objConfig->getModelObj();
+        }
+
+        $result = $this->objConfig->SetBeforeShowFormCollback($model, $result, $this->getModelData);
+
+        $result = $this->tabs->build($result);
+
+
+        return $result;
+    }
+
+
+    /**
+     * @param File $file
+     * @return \Illuminate\Http\RedirectResponse
+     * todo метод срабатывает при обновлении
+     */
+    public function updateForm()
+    {
+
+        $arr_request = $this->FormRequestModelSave('update');
+
+        if (!empty($arr_request['save_button'])) {
+
+            $success = 0;
+            if (empty($this->validator)) {
+                $success = 1;
+            }
+
+            if (!empty($this->objConfig->getSaveRedirect())) {
+                return redirect($this->objConfig->getSaveRedirect())->with('success', $success);
+            } else {
+                return redirect('/' . config('lara-config.url_group') . '/' . $this->admin->route->parameters['adminModel'])->with('success', $success);
+            }
+        }
+
+        if ($this->validator->fails()) {
+            return redirect()->back()->withErrors($this->validator)->exceptInput();
+        }
+
+        return redirect($this->request->input('url_redirect_form'))->exceptInput();
+    }
+
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     * todo метод срабатывает при добавлении
+     */
+    public function insertForm()
+    {
+
+        $arr_request = $this->FormRequestModelSave('insert');
+
+        if (!empty($arr_request['save_button']))
+        {
+            if (!empty($this->objConfig->getSaveRedirect())) {
+                return redirect($this->objConfig->getSaveRedirect());
+            } else {
+                return redirect('/' . config('lara-config.url_group') . '/' . $this->admin->route->parameters['adminModel']);
+            }
+        }
+
+        if ($this->validator->fails()) {
+            return redirect()->back()->withErrors($this->validator)->exceptInput();
+        }
+
+        return redirect($this->request->input('url_redirect_form'))->exceptInput();
+    }
+
+
+    /**
+     * @param $type
+     * @return mixed
+     */
+    public function FormRequestModelSave($type)
+    {
+        $model = [];
+        //конфиг добавляем в класс и возвращаем масив полей
+        $arr_request = $this->file->objConfig($this->objConfig);
+
+        $nameColumn = $this->objConfig->nameColumns();
+
+        //для обновления
+        if ($type === 'update') {
+
+            $model = $this->objConfig->getModelObj()->find($arr_request[$this->admin->KeyName]);
+
+            unset($arr_request['_method']);
+            unset($arr_request['_token']);
+
+            //для добавления
+        } elseif ($type === 'insert') {
+
+            $model = $this->objConfig->getModelObj();
+            unset($arr_request['_token']);
+        }
+
+        //валидация
+        if ($this->RuleValidation($arr_request) !== true) {
+            return false;
+        }
+
+        foreach ($arr_request as $name => $item) {
+
+            if ($this->objConfig->getOneToMany($name) and $type === 'update')
+            {
+                $arrId = $this->saveRelationTableOneToMany($name, $item, $model);
+                $item = json_encode($arrId);
+
+            } elseif ($this->objConfig->getOneToMany($name) and $type === 'insert') {
+                $this->relation_to_many[$name] = $item;
+            }
+
+            /**
+             * заполняем поля модели
+             */
+            if (!empty($nameColumn[$name])) {
+                $model->{$name} = is_array($item) ? json_encode($item) : $item;
+            }
+        }
+
+        if (!empty($this->relation_to_many)) {
+            /**
+             * hooc after Insert
+             */
+            $model::created(function ($value) {
+
+                foreach ($this->relation_to_many as $name => $item) {
+                    $arrId = $this->saveRelationTableOneToMany($name, $item, $value);
+                }
+
+            });
+        }
+
+        $model->save();
+
+        if ($type === 'update') {
+            $this->objConfig->setAfterUpdate($model);
+        }
+
+        //сохранить отношение многие ко многим
+        $this->saveRelationTable($arr_request, $model);
+        //сохранить отношение один ко многим
+
+        return $arr_request;
+    }
+
+
+    /**
+     * @param $arr_request
+     * @return bool|\Illuminate\Validation\Validator
+     */
+    public function RuleValidation($arr_request)
+    {
+        if ($this->objConfig->getValidationRule() !== null) {
+            $this->validator = Validator::make($arr_request, $this->objConfig->getValidationRule(), $this->objConfig->getValidationMessage());
+
+            if ($this->validator->passes()) {
+                return true;
+            }
+
+            return $this->validator;
+        }
+        return true;
+    }
+
+    /**
+     * @return string
+     * todo формируем ответ с данными для поля SELECT2
+     */
+    public function returnDataAjaxForSelect()
+    {
+        $new_data = [];
+        $data = $this->objConfig->getObjClassSelectAjax($this->request->input('field'));
+
+        $model = $this->objConfig->setAjaxBeforeLoadSelect($data['model'], $this->request);
+
+        //Class SelectAjax
+        return $this->objConfig->getObjectSelectAjax()->setData($model, $data)->getJson();
+
+    }
+
+
+    /**
+     * @param $arr_request
+     * @param $model
+     * todo метод сохраняет в промежуточную таблицу
+     */
+    public function saveRelationTable($arr_request, $model)
+    {
+        foreach ($arr_request as $fieldName => $item) {
+            $data = $this->objConfig->getCurentValueMultiple($fieldName, $model);
+            if ($data !== false) {
+                $data->ManyToMany()->sync($item);
+            }
+        }
+    }
+
+    /**
+     * @param $arr_request
+     * @param $model
+     * todo сохраняем в таблицу отношения один ко многим
+     */
+    public function saveRelationTableOneToMany($fieldName, $item, $model)
+    {
+
+        //преобразование масива перед сохранением в связаную таблицу
+        $item = $this->ConvertArrayRelationTable($fieldName, $item);
+
+        $data = $this->objConfig->getCurentValueOneToMany($fieldName, $model);
+        if ($data !== false) {
+            //получаем первичный ключ связанной таблицы
+            $primary_key = App::make($data->class)->getKeyName();
+            //получаем данные из таблицы только id выбираем
+            $item_id = [];
+
+            if (!empty($item)) {
+                foreach ($item as $rows) {
+                    $item_id[] = (int)isset($rows[$primary_key]) ? $rows[$primary_key] : null;
+                }
+            }
+
+            $data_table_id = $this->getArrIdKeyTableOneToMany($data, $primary_key);
+
+            //получаем масив ключей которые нужно удалить
+            $deleteItem = array_diff($data_table_id, $item_id);
+
+            if (!empty($deleteItem)) {
+                $data->OneToMany()->whereIn($primary_key, $deleteItem)->delete();
+            }
+
+            if (!empty($item)) {
+                foreach ($item as $itemArr) {
+                    //находим id
+                    if (!empty($itemArr[$primary_key]) and $itemArr[$primary_key] !== null) {
+                        $id = $itemArr[$primary_key];
+                        unset($itemArr[$primary_key]);
+                        $data->OneToMany()->find($id)->update($itemArr);
+                    } else {
+                        unset($itemArr[$primary_key]);
+                        $ret = $data->OneToMany()->createMany([$itemArr]);
+                    }
+
+                }
+            }
+
+        }
+
+        return $this->getArrIdKeyTableOneToMany($data, $primary_key) ?? null;
+    }
+
+
+    /**
+     * @param $data
+     * @param $primary_key
+     * @return mixed
+     */
+    public function getArrIdKeyTableOneToMany($data, $primary_key)
+    {
+        return $data->OneToMany()->get([$primary_key])->map(function ($item, $key) use ($primary_key) {
+            return $item->{$primary_key};
+        })->toArray();
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getUrlRedirect()
+    {
+        $nameModelArr = array_flip($this->admin->nameModelArr);
+        $urlRedirect = $nameModelArr[key($this->admin->getModels()->toArray())];
+        return config('lara-config.url_group') .'/'. $urlRedirect;
+    }
+}

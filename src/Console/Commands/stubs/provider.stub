@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Providers;
+
+use Trafik8787\LaraCrud2\LaraCrudProvider as ServiceProvider;
+
+class LaraCrudProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+
+    protected $navigation = [];
+
+    protected $nodes = [];
+
+    public function boot()
+    {
+
+    }
+
+}
