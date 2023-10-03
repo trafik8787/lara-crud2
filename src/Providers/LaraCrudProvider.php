@@ -72,21 +72,21 @@ class LaraCrudProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'lara');
-        $this->mergeConfigFrom(__DIR__ . '/../config/lara-config.php', 'lara-config');
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'lara-crud');
-        $this->loadRoutesFrom(__DIR__ . '/routes.php');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'lara');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/lara-config.php', 'lara-config');
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'lara-crud');
+        $this->loadRoutesFrom(__DIR__ . '/../routes.php');
 
         $this->publishes([
-            __DIR__ . '/../src/Console/Commands/Example/migrations' => base_path('database/migrations'),
+            __DIR__ . '/../../src/Console/Commands/Example/migrations' => base_path('database/migrations'),
         ], 'migration');
 
         $this->publishes([
-            __DIR__ . '/../resources/assets' => public_path('vendor/lara-crud'),
+            __DIR__ . '/../../resources/assets' => public_path('vendor/lara-crud'),
         ], 'public');
 
         $this->publishes([
-            __DIR__ . '/../config/lara-config.php' => config_path('lara-config.php'),
+            __DIR__ . '/../../config/lara-config.php' => config_path('lara-config.php'),
         ], 'config');
 
         view()->composer('lara::common.header', \Trafik8787\LaraCrud2\Navigation\Navigation::class);
