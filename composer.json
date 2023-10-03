@@ -1,0 +1,15 @@
+{
+    "name": "vendor_name/lara-crud2",
+    "description": "description",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "vitalik",
+            "email": "trafik8787@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0"
+    }
+}
