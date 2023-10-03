@@ -1,14 +1,29 @@
 {
-    "name": "vendor_name/lara-crud2",
-    "description": "description",
+    "name": "trafik8787/lara-crud2",
+    "description": "Simple flexible and multifunctional Admin Panel CRUD in which all the necessary for 95% of the cases are developed.",
     "minimum-stability": "stable",
+    "homepage": "https://trafik8787.github.io/lara-crud",
     "license": "MIT",
+    "keywords": [
+        "laravel",
+        "admin",
+        "administrator",
+        "crud",
+        "lara",
+        "panel"
+    ],
     "authors": [
         {
-            "name": "vitalik",
-            "email": "trafik8787@gmail.com"
+            "name": "Shtirlic Vitaliy",
+            "email": "trafik8787@gmail.com",
+            "homepage": "https://trafik8787.github.io/lara-crud",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "email": "trafik8787@gmail.com",
+        "docs": "https://trafik8787.github.io/lara-crud/documentation/"
+    },
     "require": {
         "php": "^7.2|^8.0"
     },
