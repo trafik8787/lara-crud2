@@ -25,7 +25,9 @@
         "docs": "https://trafik8787.github.io/lara-crud/documentation/"
     },
     "require": {
-        "php": "^7.2|^8.0"
+        "php": "^7.2|^8.0",
+        "doctrine/dbal": "^3.7",
+        "laravelcollective/html": "^6.4"
     },
     "autoload": {
         "psr-4": {
