@@ -6,12 +6,12 @@
  * Time: 17:46
  */
 
-namespace Trafik8787\LaraCrud2\Console\Commands;
+namespace Trafik8787\laraCrud2\Console\Commands;
 
 
 /**
  * Class InstallCommand
- * @package Trafik8787\LaraCrud2\Console\Commands
+ * @package Trafik8787\laraCrud2\Console\Commands
  */
 class InstallCommand extends Command
 {

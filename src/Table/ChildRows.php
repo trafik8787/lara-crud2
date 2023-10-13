@@ -6,12 +6,12 @@
  * Time: 14:16
  */
 
-namespace Trafik8787\LaraCrud2\Table;
+namespace Trafik8787\laraCrud2\Table;
 
 
 use Illuminate\Http\Request;
 use Closure;
-use Trafik8787\LaraCrud2\Contracts\ChildRowsInterface;
+use Trafik8787\laraCrud2\Contracts\ChildRowsInterface;
 
 class ChildRows implements ChildRowsInterface
 {

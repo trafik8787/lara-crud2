@@ -6,10 +6,10 @@
  * Time: 18:29
  */
 
-namespace Trafik8787\LaraCrud2\Form\Component;
+namespace Trafik8787\laraCrud2\Form\Component;
 
-use Trafik8787\LaraCrud2\Contracts\Component\TabsInterface;
-use Trafik8787\LaraCrud2\Contracts\NodeModelConfigurationInterface;
+use Trafik8787\laraCrud2\Contracts\Component\TabsInterface;
+use Trafik8787\laraCrud2\Contracts\NodeModelConfigurationInterface;
 
 class Tabs implements TabsInterface
 {

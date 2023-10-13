@@ -14,5 +14,5 @@ return [
         'created_at',
         'updated_at'
     ],
-    'namespace' => 'Trafik8787\LaraCrud\Controllers'
+    'namespace' => 'Trafik8787\laraCrud2\Controllers'
 ];

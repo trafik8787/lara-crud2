@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\Traits;
+namespace Trafik8787\laraCrud2\Traits;
 /**
  * Created by PhpStorm.
  * User: Vitalik

@@ -6,16 +6,16 @@
  * Time: 19:50
  */
 
-namespace Trafik8787\LaraCrud2\Table;
+namespace Trafik8787\laraCrud2\Table;
 
 
 use Exception;
-use Trafik8787\LaraCrud2\Contracts\SearshIndividualColumnInterface;
-use Trafik8787\LaraCrud2\Models\NodeModelConfigurationManager;
+use Trafik8787\laraCrud2\Contracts\SearshIndividualColumnInterface;
+use Trafik8787\laraCrud2\Models\NodeModelConfigurationManager;
 
 /**
  * Class SearshIndividualColumn
- * @package Trafik8787\LaraCrud2\Table
+ * @package Trafik8787\laraCrud2\Table
  */
 class SearshIndividualColumn implements SearshIndividualColumnInterface
 {

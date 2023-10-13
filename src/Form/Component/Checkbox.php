@@ -6,13 +6,13 @@
  * Time: 22:44
  */
 
-namespace Trafik8787\LaraCrud2\Form\Component;
+namespace Trafik8787\laraCrud2\Form\Component;
 
-use Trafik8787\LaraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
+use Trafik8787\laraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
 
 /**
  * Class Checkbox
- * @package Trafik8787\LaraCrud2\Form\Component
+ * @package Trafik8787\laraCrud2\Form\Component
  */
 class Checkbox
 {

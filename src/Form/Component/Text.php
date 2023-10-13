@@ -6,10 +6,10 @@
  * Time: 12:46
  */
 
-namespace Trafik8787\LaraCrud2\Form\Component;
+namespace Trafik8787\laraCrud2\Form\Component;
 
-use Trafik8787\LaraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
-use Trafik8787\LaraCrud2\Traits\Helper;
+use Trafik8787\laraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
+use Trafik8787\laraCrud2\Traits\Helper;
 
 class Text
 {

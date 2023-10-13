@@ -6,10 +6,10 @@
  * Time: 9:47
  */
 
-namespace Trafik8787\LaraCrud2\Table;
+namespace Trafik8787\laraCrud2\Table;
 
 use Illuminate\Http\Request;
-use Trafik8787\LaraCrud2\Contracts\ActionTableInterface;
+use Trafik8787\laraCrud2\Contracts\ActionTableInterface;
 
 class ActionTable implements ActionTableInterface
 {

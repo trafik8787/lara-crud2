@@ -6,11 +6,11 @@
  * Time: 19:10
  */
 
-namespace Trafik8787\LaraCrud2\Models;
+namespace Trafik8787\laraCrud2\Models;
 
 
 use Illuminate\Support\Collection;
-use Trafik8787\LaraCrud2\Contracts\NodeModelConfigurationInterface;
+use Trafik8787\laraCrud2\Contracts\NodeModelConfigurationInterface;
 
 class ModelCollection extends Collection
 {

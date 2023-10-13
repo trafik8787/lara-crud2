@@ -6,21 +6,21 @@
  * Time: 13:25
  */
 
-namespace Trafik8787\LaraCrud2\Form;
+namespace Trafik8787\laraCrud2\Form;
 
 use App;
 
 use Illuminate\Http\Request;
 use Validator;
-use Trafik8787\LaraCrud2\Contracts\Component\TabsInterface;
-use Trafik8787\LaraCrud2\Contracts\Component\UploadFileInterface;
-use Trafik8787\LaraCrud2\Form\Component\ComponentManagerBuilder;
-use Trafik8787\LaraCrud2\Form\Component\File;
+use Trafik8787\laraCrud2\Contracts\Component\TabsInterface;
+use Trafik8787\laraCrud2\Contracts\Component\UploadFileInterface;
+use Trafik8787\laraCrud2\Form\Component\ComponentManagerBuilder;
+use Trafik8787\laraCrud2\Form\Component\File;
 
 
 /**
  * Class FormTable
- * @package Trafik8787\LaraCrud2\Form
+ * @package Trafik8787\laraCrud2\Form
  */
 class FormTable extends FormManagerTable
 {

@@ -6,7 +6,7 @@
  * Time: 13:09
  */
 
-namespace Trafik8787\LaraCrud2\Contracts;
+namespace Trafik8787\laraCrud2\Contracts;
 
 
 interface FormManagerInterface

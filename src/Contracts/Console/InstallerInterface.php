@@ -6,7 +6,7 @@
  * Time: 19:42
  */
 
-namespace Trafik8787\LaraCrud2\Contracts\Console;
+namespace Trafik8787\laraCrud2\Contracts\Console;
 
 interface InstallerInterface
 {

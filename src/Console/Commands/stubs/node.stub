@@ -2,8 +2,8 @@
 
 namespace App\Http\Node;
 
-use Trafik8787\LaraCrud2\Contracts\NodeInterface;
-use Trafik8787\LaraCrud2\Models\NodeModelConfiguration;
+use Trafik8787\laraCrud2\Contracts\NodeInterface;
+use Trafik8787\laraCrud2\Models\NodeModelConfiguration;
 
 class NodeModelStud extends NodeModelConfiguration implements NodeInterface {
 

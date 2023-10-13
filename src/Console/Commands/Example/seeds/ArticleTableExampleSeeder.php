@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\Seeder;
+namespace Trafik8787\laraCrud2\Seeder;
 
 use Faker\Generator;
 use Illuminate\Database\Eloquent\Factory;

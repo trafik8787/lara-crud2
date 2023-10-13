@@ -6,18 +6,18 @@
  * Time: 17:41
  */
 
-namespace Trafik8787\LaraCrud2;
+namespace Trafik8787\laraCrud2;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Trafik8787\LaraCrud2\Contracts\AdminInterface;
-use Trafik8787\LaraCrud2\Contracts\FormManagerInterface;
-use Trafik8787\LaraCrud2\Contracts\NodeModelConfigurationInterface;
-use Trafik8787\LaraCrud2\Contracts\TableInterface;
-use Trafik8787\LaraCrud2\Models\HomeModel;
-use Trafik8787\LaraCrud2\Models\HomeNode;
-use Trafik8787\LaraCrud2\Models\ModelCollection;
+use Trafik8787\laraCrud2\Contracts\AdminInterface;
+use Trafik8787\laraCrud2\Contracts\FormManagerInterface;
+use Trafik8787\laraCrud2\Contracts\NodeModelConfigurationInterface;
+use Trafik8787\laraCrud2\Contracts\TableInterface;
+use Trafik8787\laraCrud2\Models\HomeModel;
+use Trafik8787\laraCrud2\Models\HomeNode;
+use Trafik8787\laraCrud2\Models\ModelCollection;
 
 class Admin implements AdminInterface
 {

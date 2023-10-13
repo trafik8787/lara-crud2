@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\EloquentModel;
+namespace Trafik8787\laraCrud2\EloquentModel;
 
 use Illuminate\Database\Eloquent\Model;
 

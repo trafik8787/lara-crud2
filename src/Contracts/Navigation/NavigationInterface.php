@@ -6,7 +6,7 @@
  * Time: 16:13
  */
 
-namespace Trafik8787\LaraCrud2\Contracts\Navigation;
+namespace Trafik8787\laraCrud2\Contracts\Navigation;
 
 use Illuminate\View\View;
 

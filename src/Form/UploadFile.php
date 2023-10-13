@@ -6,11 +6,11 @@
  * Time: 20:50
  */
 
-namespace Trafik8787\LaraCrud2\Form;
+namespace Trafik8787\laraCrud2\Form;
 
 use Illuminate\Http\Request;
-use Trafik8787\LaraCrud2\Contracts\Component\UploadFileInterface;
-use Trafik8787\LaraCrud2\Contracts\NodeModelConfigurationInterface;
+use Trafik8787\laraCrud2\Contracts\Component\UploadFileInterface;
+use Trafik8787\laraCrud2\Contracts\NodeModelConfigurationInterface;
 
 class UploadFile implements UploadFileInterface
 {

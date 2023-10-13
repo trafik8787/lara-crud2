@@ -6,13 +6,13 @@
  * Time: 17:43
  */
 
-namespace Trafik8787\LaraCrud2\Models;
+namespace Trafik8787\laraCrud2\Models;
 
-use Trafik8787\LaraCrud2\Contracts\Model\RelationshipsInterface;
+use Trafik8787\laraCrud2\Contracts\Model\RelationshipsInterface;
 
 /**
  * Class Relationships
- * @package Trafik8787\LaraCrud2\Models
+ * @package Trafik8787\laraCrud2\Models
  */
 class Relationships implements RelationshipsInterface
 {

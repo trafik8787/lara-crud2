@@ -6,7 +6,7 @@
  * Time: 17:42
  */
 
-namespace Trafik8787\LaraCrud2\Contracts\Model;
+namespace Trafik8787\laraCrud2\Contracts\Model;
 
 interface RelationshipsInterface
 {

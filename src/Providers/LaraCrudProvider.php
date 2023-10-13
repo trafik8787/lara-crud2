@@ -4,24 +4,28 @@ namespace Trafik8787\laraCrud2\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Route;
-use Trafik8787\LaraCrud2\Admin;
-use Trafik8787\LaraCrud2\Contracts\ActionTableInterface;
-use Trafik8787\LaraCrud2\Contracts\AdminInterface;
-use Trafik8787\LaraCrud2\Contracts\ChildRowsInterface;
-use Trafik8787\LaraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
-use Trafik8787\LaraCrud2\Contracts\Component\TabsInterface;
-use Trafik8787\LaraCrud2\Contracts\Component\UploadFileInterface;
-use Trafik8787\LaraCrud2\Contracts\FormManagerInterface;
-use Trafik8787\LaraCrud2\Contracts\NodeModelConfigurationInterface;
-use Trafik8787\LaraCrud2\Contracts\TableInterface;
-use Trafik8787\LaraCrud2\Form\Component\ComponentManagerBuilder;
-use Trafik8787\LaraCrud2\Form\Component\Tabs;
-use Trafik8787\LaraCrud2\Form\FormTable;
-use Trafik8787\LaraCrud2\Form\UploadFile;
-use Trafik8787\LaraCrud2\Models\NodeModelConfiguration;
-use Trafik8787\LaraCrud2\Table\ActionTable;
-use Trafik8787\LaraCrud2\Table\ChildRows;
-use Trafik8787\LaraCrud2\Table\DataTable;
+use Trafik8787\laraCrud2\Admin;
+use Trafik8787\laraCrud2\Console\Commands\InstallCommand;
+use Trafik8787\laraCrud2\Console\Commands\InstallExample;
+use Trafik8787\laraCrud2\Console\Commands\ModelGenerate;
+use Trafik8787\laraCrud2\Console\Commands\NodeGenerate;
+use Trafik8787\laraCrud2\Contracts\ActionTableInterface;
+use Trafik8787\laraCrud2\Contracts\AdminInterface;
+use Trafik8787\laraCrud2\Contracts\ChildRowsInterface;
+use Trafik8787\laraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
+use Trafik8787\laraCrud2\Contracts\Component\TabsInterface;
+use Trafik8787\laraCrud2\Contracts\Component\UploadFileInterface;
+use Trafik8787\laraCrud2\Contracts\FormManagerInterface;
+use Trafik8787\laraCrud2\Contracts\NodeModelConfigurationInterface;
+use Trafik8787\laraCrud2\Contracts\TableInterface;
+use Trafik8787\laraCrud2\Form\Component\ComponentManagerBuilder;
+use Trafik8787\laraCrud2\Form\Component\Tabs;
+use Trafik8787\laraCrud2\Form\FormTable;
+use Trafik8787\laraCrud2\Form\UploadFile;
+use Trafik8787\laraCrud2\Models\NodeModelConfiguration;
+use Trafik8787\laraCrud2\Table\ActionTable;
+use Trafik8787\laraCrud2\Table\ChildRows;
+use Trafik8787\laraCrud2\Table\DataTable;
 
 
 class LaraCrudProvider extends ServiceProvider
@@ -46,7 +50,6 @@ class LaraCrudProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->registerCommands();
 
         $this->app->singleton(AdminInterface::class, function () {
             return new Admin($this->nodes(), $this->navigation(), $this->app, $this->app->make(Route::class));
@@ -68,6 +71,9 @@ class LaraCrudProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        $this->registerCommands();
+
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'lara');
         $this->mergeConfigFrom(__DIR__ . '/../../config/lara-config.php', 'lara-config');
         $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'lara-crud');
@@ -85,7 +91,7 @@ class LaraCrudProvider extends ServiceProvider
             __DIR__ . '/../../config/lara-config.php' => config_path('lara-config.php'),
         ], 'config');
 
-        view()->composer('lara::common.header', \Trafik8787\LaraCrud2\Navigation\Navigation::class);
+        view()->composer('lara::common.header', \Trafik8787\laraCrud2\Navigation\Navigation::class);
     }
 
     protected function getConfig($key)
@@ -97,10 +103,10 @@ class LaraCrudProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \Trafik8787\LaraCrud2\Console\Commands\NodeGenerate::class,
-                \Trafik8787\LaraCrud2\Console\Commands\ModelGenerate::class,
-                \Trafik8787\LaraCrud2\Console\Commands\InstallCommand::class,
-                \Trafik8787\LaraCrud2\Console\Commands\InstallExample::class
+                NodeGenerate::class,
+                ModelGenerate::class,
+                InstallCommand::class,
+                InstallExample::class
             ]);
         }
     }

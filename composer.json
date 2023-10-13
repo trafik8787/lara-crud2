@@ -29,7 +29,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Trafik8787\\laraCrud2\\" : "src"
+            "Trafik8787\\laraCrud2\\" : "src",
+            "Trafik8787\\laraCrud2\\Seeder\\": "src/Console/Commands/Example/seeds"
         }
     },
     "extra": {

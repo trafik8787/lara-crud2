@@ -6,9 +6,9 @@
  * Time: 13:34
  */
 
-namespace Trafik8787\LaraCrud2\Contracts\Component;
+namespace Trafik8787\laraCrud2\Contracts\Component;
 
-use Trafik8787\LaraCrud2\Form\Component\Text;
+use Trafik8787\laraCrud2\Form\Component\Text;
 
 interface ComponentManagerBuilderInterface
 {

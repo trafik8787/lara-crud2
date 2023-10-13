@@ -6,16 +6,16 @@
  * Time: 13:27
  */
 
-namespace Trafik8787\LaraCrud2\Form\Component;
+namespace Trafik8787\laraCrud2\Form\Component;
 
 
 use Illuminate\Support\Facades\Request;
-use Trafik8787\LaraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
+use Trafik8787\laraCrud2\Contracts\Component\ComponentManagerBuilderInterface;
 
 
 /**
  * Class ComponentManagerBuilder
- * @package Trafik8787\LaraCrud2\Form\Component
+ * @package Trafik8787\laraCrud2\Form\Component
  * patern Builder
  */
 class ComponentManagerBuilder implements ComponentManagerBuilderInterface

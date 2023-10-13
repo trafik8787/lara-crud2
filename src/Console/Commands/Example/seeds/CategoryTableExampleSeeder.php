@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\Seeder;
+namespace Trafik8787\laraCrud2\Seeder;
 
 use Faker\Generator;
 use Illuminate\Database\Eloquent\Factory;
@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * Class CategoryTableExampleSeeder
- * @package Trafik8787\LaraCrud2\Seeder
+ * @package Trafik8787\laraCrud2\Seeder
  */
 class CategoryTableExampleSeeder extends Seeder
 {

@@ -6,12 +6,12 @@
  * Time: 15:48
  */
 
-namespace Trafik8787\LaraCrud2\Form;
+namespace Trafik8787\laraCrud2\Form;
 
 
 /**
  * Class SelectAjax
- * @package Trafik8787\LaraCrud2\Form
+ * @package Trafik8787\laraCrud2\Form
  */
 class SelectAjax
 {

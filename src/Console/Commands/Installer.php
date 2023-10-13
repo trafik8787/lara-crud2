@@ -6,13 +6,13 @@
  * Time: 19:44
  */
 
-namespace Trafik8787\LaraCrud2\Console\Commands;
+namespace Trafik8787\laraCrud2\Console\Commands;
 
-use Trafik8787\LaraCrud2\Contracts\Console\InstallerInterface;
+use Trafik8787\laraCrud2\Contracts\Console\InstallerInterface;
 
 /**
  * Class Installer
- * @package Trafik8787\LaraCrud2\Console\Commands
+ * @package Trafik8787\laraCrud2\Console\Commands
  */
 abstract class Installer implements InstallerInterface
 {

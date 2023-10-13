@@ -1,8 +1,8 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\Form;
+namespace Trafik8787\laraCrud2\Form;
 
-use Trafik8787\LaraCrud2\Contracts\FormManagerInterface;
+use Trafik8787\laraCrud2\Contracts\FormManagerInterface;
 
 /**
  * Created by PhpStorm.

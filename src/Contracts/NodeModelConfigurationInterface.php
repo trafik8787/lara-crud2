@@ -6,7 +6,7 @@
  * Time: 17:20
  */
 
-namespace Trafik8787\LaraCrud2\Contracts;
+namespace Trafik8787\laraCrud2\Contracts;
 
 use Closure;
 

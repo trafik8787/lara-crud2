@@ -6,14 +6,14 @@
  * Time: 16:00
  */
 
-namespace Trafik8787\LaraCrud2\Table;
+namespace Trafik8787\laraCrud2\Table;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
-use Trafik8787\LaraCrud2\Contracts\ActionTableInterface;
-use Trafik8787\LaraCrud2\Contracts\TableInterface;
+use Trafik8787\laraCrud2\Contracts\ActionTableInterface;
+use Trafik8787\laraCrud2\Contracts\TableInterface;
 
 class DataTable implements TableInterface
 {

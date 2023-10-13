@@ -6,12 +6,12 @@
  * Time: 16:06
  */
 
-namespace Trafik8787\LaraCrud2\Console\Commands;
+namespace Trafik8787\laraCrud2\Console\Commands;
 
 
 /**
  * Class CreateMigrationExample
- * @package Trafik8787\LaraCrud2\Console\Commands
+ * @package Trafik8787\laraCrud2\Console\Commands
  */
 class CreateMigrationExample extends Installer
 {
@@ -36,8 +36,8 @@ class CreateMigrationExample extends Installer
 
         $this->command->call('migrate', ['--path' => 'vendor/trafik8787/lara-crud/src/Console/Commands/Example/migrations']);
         $this->command->call('migrate');
-        $this->command->call('db:seed', ['--class' => 'Trafik8787\LaraCrud2\Seeder\ArticleTableExampleSeeder']);
-        $this->command->call('db:seed', ['--class' => 'Trafik8787\LaraCrud2\Seeder\CategoryTableExampleSeeder']);
+        $this->command->call('db:seed', ['--class' => 'Trafik8787\laraCrud2\Seeder\ArticleTableExampleSeeder']);
+        $this->command->call('db:seed', ['--class' => 'Trafik8787\laraCrud2\Seeder\CategoryTableExampleSeeder']);
     }
 
     /**

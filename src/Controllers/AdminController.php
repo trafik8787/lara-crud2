@@ -1,14 +1,14 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\Controllers;
+namespace Trafik8787\laraCrud2\Controllers;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use Trafik8787\LaraCrud2\Contracts\AdminInterface;
-use Trafik8787\LaraCrud2\Contracts\FormManagerInterface;
-use Trafik8787\LaraCrud2\Contracts\TableInterface;
+use Trafik8787\laraCrud2\Contracts\AdminInterface;
+use Trafik8787\laraCrud2\Contracts\FormManagerInterface;
+use Trafik8787\laraCrud2\Contracts\TableInterface;
 
 class AdminController extends Controller
 {

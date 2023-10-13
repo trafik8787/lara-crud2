@@ -6,7 +6,7 @@
  * Time: 18:46
  */
 
-namespace Trafik8787\LaraCrud2\Models;
+namespace Trafik8787\laraCrud2\Models;
 
 
 class HomeNode extends NodeModelConfiguration {

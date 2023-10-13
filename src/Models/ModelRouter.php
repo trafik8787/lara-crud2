@@ -1,9 +1,9 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\Models;
+namespace Trafik8787\laraCrud2\Models;
 
 use Illuminate\Routing\Route;
-use Trafik8787\LaraCrud2\Contracts\Model\ModelRouterInterface;
+use Trafik8787\laraCrud2\Contracts\Model\ModelRouterInterface;
 
 class ModelRouter implements ModelRouterInterface
 {

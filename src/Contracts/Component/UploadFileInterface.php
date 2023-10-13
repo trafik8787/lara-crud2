@@ -6,7 +6,7 @@
  * Time: 20:51
  */
 
-namespace Trafik8787\LaraCrud2\Contracts\Component;
+namespace Trafik8787\laraCrud2\Contracts\Component;
 
 
 interface UploadFileInterface

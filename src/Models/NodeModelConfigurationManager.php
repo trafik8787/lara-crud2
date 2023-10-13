@@ -6,15 +6,15 @@
  * Time: 22:43
  */
 
-namespace Trafik8787\LaraCrud2\Models;
+namespace Trafik8787\laraCrud2\Models;
 
 use App;
 use Illuminate\Contracts\Foundation\Application;
 use Request;
-use Trafik8787\LaraCrud2\Contracts\NodeModelConfigurationInterface;
-use Trafik8787\LaraCrud2\Form\SelectAjax;
-use Trafik8787\LaraCrud2\Table\SearchTable;
-use Trafik8787\LaraCrud2\Traits\Helper;
+use Trafik8787\laraCrud2\Contracts\NodeModelConfigurationInterface;
+use Trafik8787\laraCrud2\Form\SelectAjax;
+use Trafik8787\laraCrud2\Table\SearchTable;
+use Trafik8787\laraCrud2\Traits\Helper;
 
 abstract class NodeModelConfigurationManager implements NodeModelConfigurationInterface
 {

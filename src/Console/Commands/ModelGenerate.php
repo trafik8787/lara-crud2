@@ -1,13 +1,13 @@
 <?php
 
-namespace Trafik8787\LaraCrud2\Console\Commands;
+namespace Trafik8787\laraCrud2\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Class ModelGenerate
- * @package Trafik8787\LaraCrud2\Console\Commands
+ * @package Trafik8787\laraCrud2\Console\Commands
  */
 class ModelGenerate extends GeneratorCommand
 {

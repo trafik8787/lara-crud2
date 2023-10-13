@@ -6,11 +6,11 @@
  * Time: 17:20
  */
 
-namespace Trafik8787\LaraCrud2\Contracts;
+namespace Trafik8787\laraCrud2\Contracts;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
-use Trafik8787\LaraCrud2\Contracts\Model\ModelRouterInterface;
+use Trafik8787\laraCrud2\Contracts\Model\ModelRouterInterface;
 
 interface AdminInterface
 {

@@ -6,14 +6,14 @@
  * Time: 20:26
  */
 
-namespace Trafik8787\LaraCrud2\Models;
+namespace Trafik8787\laraCrud2\Models;
 
 use Closure;
 
 use Illuminate\Support\Facades\Request;
 
-use Trafik8787\LaraCrud2\Table\ChildRows;
-use Trafik8787\LaraCrud2\Table\SearshIndividualColumn;
+use Trafik8787\laraCrud2\Table\ChildRows;
+use Trafik8787\laraCrud2\Table\SearshIndividualColumn;
 
 class NodeModelConfiguration extends NodeModelConfigurationManager
 {

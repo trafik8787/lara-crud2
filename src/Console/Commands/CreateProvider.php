@@ -6,7 +6,7 @@
  * Time: 16:06
  */
 
-namespace Trafik8787\LaraCrud2\Console\Commands;
+namespace Trafik8787\laraCrud2\Console\Commands;
 
 
 class CreateProvider extends Installer
@@ -36,7 +36,7 @@ class CreateProvider extends Installer
         $contents = str_replace(
             '__NAMESPACE__',
             $ns,
-            $this->command->files()->get(SLEEPINGOWL_STUB_PATH . '/provider.stub')
+            $this->command->files()->get(__DIR__ . '/stubs' . '/provider.stub')
         );
 
         $this->command->files()->put($file, $contents);

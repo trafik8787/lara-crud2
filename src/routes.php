@@ -7,7 +7,7 @@
  */
 
 
-Route::group(['prefix' => config('lara-config.url_group'), 'namespace' => config('lara-config.namespace', 'Trafik8787\LaraCrud2\Controllers'), 'middleware' => config('lara-config.middleware')], function () {
+Route::group(['prefix' => config('lara-config.url_group'), 'namespace' => config('lara-config.namespace', 'Trafik8787\laraCrud2\Controllers'), 'middleware' => config('lara-config.middleware')], function () {
 
     Route::get('', ['as' => 'Dashboard', 'uses' => 'AdminController@getDashboard']);
 

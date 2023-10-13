@@ -6,7 +6,7 @@
  * Time: 17:11
  */
 
-namespace Trafik8787\LaraCrud2\Table;
+namespace Trafik8787\laraCrud2\Table;
 
 
 class SearchTable

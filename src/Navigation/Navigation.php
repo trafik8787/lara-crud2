@@ -6,16 +6,16 @@
  * Time: 16:11
  */
 
-namespace Trafik8787\LaraCrud2\Navigation;
+namespace Trafik8787\laraCrud2\Navigation;
 
 use Illuminate\Foundation\Application;
 use Illuminate\View\View;
-use Trafik8787\LaraCrud2\Contracts\AdminInterface;
-use Trafik8787\LaraCrud2\Contracts\Navigation\NavigationInterface;
+use Trafik8787\laraCrud2\Contracts\AdminInterface;
+use Trafik8787\laraCrud2\Contracts\Navigation\NavigationInterface;
 
 /**
  * Class Navigation
- * @package Trafik8787\LaraCrud2\Navigation
+ * @package Trafik8787\laraCrud2\Navigation
  */
 class Navigation implements NavigationInterface
 {
