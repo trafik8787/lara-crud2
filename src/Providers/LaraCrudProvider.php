@@ -80,6 +80,10 @@ class LaraCrudProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../routes.php');
 
         $this->publishes([
+            __DIR__.'/../../resources/lang' => $this->app->langPath('vendor/lara-crud2'),
+        ]);
+
+        $this->publishes([
             __DIR__ . '/../../src/Console/Commands/Example/migrations' => base_path('database/migrations'),
         ], 'migration');
 
