@@ -76,7 +76,7 @@ class LaraCrudProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'lara');
         $this->mergeConfigFrom(__DIR__ . '/../../config/lara-config.php', 'lara-config');
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'lara-crud');
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'lara-crud2');
         $this->loadRoutesFrom(__DIR__ . '/../routes.php');
 
         $this->publishes([
@@ -84,7 +84,7 @@ class LaraCrudProvider extends ServiceProvider
         ], 'migration');
 
         $this->publishes([
-            __DIR__ . '/../../resources/assets' => public_path('vendor/lara-crud'),
+            __DIR__ . '/../../resources/assets' => public_path('vendor/lara-crud2'),
         ], 'public');
 
         $this->publishes([

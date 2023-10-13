@@ -34,7 +34,7 @@ class CreateMigrationExample extends Installer
         $this->command->call('lara:node', ['name' => 'CategoryExample', '--tableExample' => 'example_category']);
         $this->command->call('lara:model', ['name' => 'CategoryArticlesExample', '--tableExample' => 'example_category_article']);
 
-        $this->command->call('migrate', ['--path' => 'vendor/trafik8787/lara-crud/src/Console/Commands/Example/migrations']);
+        $this->command->call('migrate', ['--path' => 'vendor/trafik8787/lara-crud2/src/Console/Commands/Example/migrations']);
         $this->command->call('migrate');
         $this->command->call('db:seed', ['--class' => 'Trafik8787\laraCrud2\Seeder\ArticleTableExampleSeeder']);
         $this->command->call('db:seed', ['--class' => 'Trafik8787\laraCrud2\Seeder\CategoryTableExampleSeeder']);

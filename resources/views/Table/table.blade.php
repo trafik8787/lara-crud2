@@ -51,7 +51,7 @@
                 ],
                 "pageLength": data_json.pageLength,
                 "oLanguage": {
-                    "sProcessing": '<img src="{{asset("vendor/lara-crud/img/loader.gif")}}">'
+                    "sProcessing": '<img src="{{asset("vendor/lara-crud2/img/loader.gif")}}">'
                 },
                 "processing": data_json.serverSide,
                 "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
@@ -81,7 +81,7 @@
 
                 },
 
-                "oLanguage": JSON.parse('{!! json_encode(__('lara-crud::datatable')) !!}')
+                "oLanguage": JSON.parse('{!! json_encode(__('lara-crud2::datatable')) !!}')
 
             });
 
@@ -161,15 +161,15 @@
             <div class="mailbox-controls text-right">
                 @if($buttonAdd)
                     <a href="{{ url()->current()}}/create" class="btn btn-success"><span
-                                class="glyphicon glyphicon-plus"></span> {{__('lara-crud::datatable.lAdd')}}</a>
+                                class="glyphicon glyphicon-plus"></span> {{__('lara-crud2::datatable.lAdd')}}</a>
                 @endif
                 @if($buttonCopy)
                     <button type="submit" name="copy_{{csrf_token()}}" class="btn btn-default"><span
-                                class="glyphicon glyphicon-copy"></span> {{__('lara-crud::datatable.lCopy')}}</button>
+                                class="glyphicon glyphicon-copy"></span> {{__('lara-crud2::datatable.lCopy')}}</button>
                 @endif
                 @if($buttonGroupDelete)
                     <button type="submit" name="delete_group_{{csrf_token()}}" class="btn btn-danger"><span
-                                class="glyphicon glyphicon-remove"></span> {{__('lara-crud::datatable.lDelete')}}
+                                class="glyphicon glyphicon-remove"></span> {{__('lara-crud2::datatable.lDelete')}}
                     </button>
                 @endif
             </div>
@@ -189,7 +189,7 @@
                         <th>{{$field}}</th>
                     @endforeach
                     @if($buttonAction)
-                        <th>{{__('lara-crud::datatable.lAction')}}</th>
+                        <th>{{__('lara-crud2::datatable.lAction')}}</th>
                     @endif
 
                 </tr>
@@ -234,7 +234,7 @@
                         <th>{{$field}}</th>
                     @endforeach
                     @if($buttonAction)
-                        <th>{{__('lara-crud::datatable.lAction')}}</th>
+                        <th>{{__('lara-crud2::datatable.lAction')}}</th>
                     @endif
 
                 </tr>

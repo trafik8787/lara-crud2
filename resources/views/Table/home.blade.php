@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{asset('vendor/lara-crud/bower_components/jvectormap/jquery-jvectormap.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/lara-crud2/bower_components/jvectormap/jquery-jvectormap.css')}}">
 <section class="content-header">
     <h1>
         Dashboard Example
@@ -122,6 +122,6 @@
     <!-- /.row (main row) -->
 
 </section>
-<script src="{{asset('vendor/lara-crud/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('vendor/lara-crud/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<script src="{{asset('vendor/lara-crud2/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{asset('vendor/lara-crud2/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 
