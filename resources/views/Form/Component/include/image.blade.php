@@ -24,7 +24,7 @@
             <div class="mailbox-attachment-info">
                 <a href="#" class="mailbox-attachment-name">
                     <span class="mailbox-attachment-size">
-                       {{\Trafik8787\LaraCrud\Form\UploadFile::formatBytes(File::size($value), 1)}}
+                       {{\Trafik8787\laraCrud2\Form\UploadFile::formatBytes(File::size($value), 1)}}
                     </span>
                 </a>
             </div>
